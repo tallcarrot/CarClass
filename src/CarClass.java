@@ -24,7 +24,7 @@ public class CarClass {
     }
 
     private void updateFuel(double fuelUsed) {
-        m_currentFuel -= fuelUsed;
+        m_currentFuel += fuelUsed;
         
         if(m_currentFuel < 0) {
             m_currentFuel = 0;
@@ -42,15 +42,12 @@ public class CarClass {
 
         updateFuel(-fuelUsed);
 
-        System.out.println(m_make + " " + m_model + " drove " + fuelUsed * m_mpg + " miles.");
+        System.out.println(m_make + " " + m_model + " drove " + (fuelUsed * m_mpg) + " miles.");
     }
 
     private void refuel(double fuel) {
-        fuel += m_currentFuel;
-        
         updateFuel(fuel);
-
-        System.out.println(m_make + " " + m_model + " refueled. Current fuel: " + fuel + " gallons");
+        System.out.println(m_make + " " + m_model + " refueled. Current fuel: " + m_currentFuel + " gallons.");
     }
 
     public static void main(String[] args) {
